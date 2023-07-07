@@ -54,6 +54,67 @@ let containerRoomSelector = document.querySelector('.btn-container__change-room'
 containerRoomSelector.appendChild(link);
 })
 
+//Реализация
+
+let beds = document.getElementsByClassName('btn-container__change-bed');
+
+//Шаг2
+
+let pathToBedImg = new Array (
+"./img/bad/1.png",
+"./img/bad/2.png",
+"./img/bad/3.png",
+);
+
+//Промежуточный
+
+function renderBed(){
+    //Через объект
+    let link = event.target.dataset.link
+    alert('Hello renderBed')
+    //Получить элемент
+    let bedBlock = document.querySelector('.room__bed');
+    //Установить
+    bedBlock.style.backgroundImage = `url('${link}')`;
+}
+
+
+//Шаг 3
+
+for(let i = 0; i < pathToBedImg.length; i++) {
+    console.log('Итерация номер = ' + i);
+
+//Получаем
+console.log('Полученный путь в массиве pathToBedImg:' + pathToBedImg[i]);
+
+//Создадим элемент
+
+let linkBed =`
+    <a
+
+        class="option-item"
+        data-link="${pathToBedImg[i]}"
+        data-type="bed"
+        style="background-image: url(${pathToBedImg[i]})"
+        onclick="renderBed()">
+
+     </a>
+     `;
+
+     console.log(linkBed);
+
+
+     //Добавить
+
+     beds[0].innerHTML += linkBed;
+
+
+
+
+
+}
+
+
 
 
 
