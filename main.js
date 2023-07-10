@@ -66,14 +66,16 @@ let pathToBedImg = new Array (
 "./img/bad/3.png",
 );
 
-//Промежуточный
+//Промежуточный шаг
 
-function renderBed(){
+function render(){
     //Через объект
     let link = event.target.dataset.link
-    alert('Hello renderBed')
+    //alert('Hello renderBed')
+    //Получим через дата атрибут, тип фильтра, в который добавляет картинки
+    let type = event.target.dataset.type
     //Получить элемент
-    let bedBlock = document.querySelector('.room__bed');
+    let bedBlock = document.querySelector(`.room__${type}`);
     //Установить
     bedBlock.style.backgroundImage = `url('${link}')`;
 }
@@ -96,7 +98,7 @@ let linkBed =`
         data-link="${pathToBedImg[i]}"
         data-type="bed"
         style="background-image: url(${pathToBedImg[i]})"
-        onclick="renderBed()">
+        onclick="render()">
 
      </a>
      `;
@@ -113,6 +115,101 @@ let linkBed =`
 
 
 }
+
+
+
+
+
+
+//Шаг 1
+
+let lamps = document.getElementsByClassName('btn-container__change-lamp');
+
+//Шаг2
+
+let pathToLampImg = new Array (
+"./img/lamp/1.png",
+"./img/lamp/2.png",
+"./img/lamp/3.png",
+"./img/lamp/4.png",
+);
+
+
+
+
+//Шаг 3
+
+for(let i = 0; i < pathToLampImg.length; i++) {
+    console.log('Итерация номер = ' + i);
+
+//Получаем
+console.log('Полученный путь в массиве pathToLampImg:' + pathToLampImg[i]);
+
+//Создадим элемент
+
+let linkLamp =`
+    <a
+
+        class="option-item"
+        data-link="${pathToLampImg[i]}"
+        data-type="lamp"
+        style="background-image: url(${pathToLampImg[i]})"
+        onclick="render()">
+
+     </a>
+     `;
+
+     console.log(linkLamp);
+
+
+     //Добавить
+
+     lamps[0].innerHTML += linkLamp;
+
+} 
+
+
+// Фильтр для добавления шкафов на верстку
+// Получить элемент
+
+const changeCabinet = document.querySelector("section.btn-container__change-cabinet");
+
+//Завести массив с изображениями
+
+let arrayCabinet = [];
+
+//Добавляем (пушим)
+arrayCabinet.push("./img/cabinet/1.png");
+arrayCabinet.push("./img/cabinet/2.png");
+console.log(arrayCabinet);// 
+
+
+//Переберем
+// 
+
+for(let cabinet of arrayCabinet) {
+    console.log(cabinet);
+    let linkCabinet = `
+    <a
+
+        class="option-item"
+        data-link="${cabinet}"
+        data-type="cabinet"
+        style="background-image: url(${cabinet})"
+        onclick="render()">
+
+     </a>
+    
+    `;
+
+    //Добпвляем ссылку в фильтр
+    changeCabinet.innerHTML += linkCabinet;
+
+
+}
+
+
+
 
 
 
