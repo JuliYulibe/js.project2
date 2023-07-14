@@ -208,6 +208,45 @@ for(let cabinet of arrayCabinet) {
 
 }
 
+// Фильтр для добавления плаката на верстку
+// Получить элемент
+
+const changePic = document.querySelector("section.btn-container__change-pic");
+
+//Завести массив с изображениями
+
+let arrayPic = [];
+
+//Добавляем (пушим)
+arrayPic.push("./img/pic/1.jpeg");
+arrayPic.push("./img/pic/2.jpeg");
+console.log(arrayPic);// 
+
+
+//Переберем
+// 
+
+for(let pic of arrayPic) {
+    console.log(pic);
+    let linkPic = `
+    <a
+
+        class="option-item"
+        data-link="${pic}"
+        data-type="pic"
+        style="background-image: url(${pic})"
+        onclick="render()">
+
+     </a>
+    
+    `;
+
+    //Добпвляем ссылку в фильтр
+    changePic.innerHTML += linkPic;
+
+
+}
+
 
 
 
