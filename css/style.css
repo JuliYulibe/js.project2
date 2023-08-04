@@ -10,14 +10,13 @@ body{
     background-size: cover;
 }
 
+
 .room__pic{
     height: 400px;
     z-index: 2;
     width: 400px;
     position: absolute;
     background-size: cover;
-    bottom: 100px;
-    left: 500px;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -28,7 +27,6 @@ body{
     width: 400px;
     position: absolute;
     background-size: cover;
-    bottom: 100px;
     left: 500px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -49,10 +47,15 @@ body{
     z-index: 2;
     width: 400px;
     position: absolute;
-    bottom: 200px;
     left: 100px;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.room__cabinet, .room__lamp, 
+.room__bed, .room__pic {
+    left: 0;
+    bottom: 0;
 }
 
 .btn-container__arrows{
